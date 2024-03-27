@@ -1,0 +1,41 @@
+.heni{
+    color: white;
+    height: 170px;
+    background: #D84000;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    margin: 15px;
+}
+.heni:hover{
+    cursor: pointer;
+}
+@media (max-width: 992px) {
+    .heni{
+        margin: 5px;
+        height: 150px;
+    }
+    #jbeli{
+        padding: 0 !important;
+    }
+  }
+h3{
+    font-family: sans-serif;
+    padding: 0 10px;
+
+}
+img{
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    bottom: -10px;
+    right: -20px;
+    -moz-transform: rotate(29deg);
+    -webkit-transform: rotate(29deg);
+    -o-transform: rotate(29deg);
+    -ms-transform: rotate(29deg);
+    transform: rotate(29deg);
+}
+a{
+    text-decoration: none;
+}

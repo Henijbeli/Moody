@@ -1,0 +1,85 @@
+
+<div class="container-fluid" style="padding: 20px;">
+    <div class="container-fluid text-center pt-3 text-light" style="background-color: #121212;padding-bottom: 50px;">
+    
+        <h5 class="h2 title  p-4">Hear what’s Trending for free in Moody community</h5>
+
+    
+        <div class="row">
+            <div id="song" *ngFor="let item of songList1;let i = index " class="col-md-3 col-xl-2 col-6 mt-4">
+                <div  class="card" (click)="playSong(i)">
+                    <img [src]="item.img" alt="song">
+                    <div class="card-body ">
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <p class="card-text truncate-multiline">{{item.artist}}</p>
+                    </div>
+                    <span id="play"><i class="fa-solid fa-play"></i></span>
+                </div>    
+            </div>
+        </div>
+
+    
+        <div  id="songList2" class="row" [ngClass]="{'hidden' :showDiv}">
+            <div *ngFor="let item of songList1" class="col-md-3 col-xl-2 col-6 mt-4">
+                <div  class="card">
+                    <img [src]="item.img" alt="song">
+                    <div class="card-body ">
+                      <h5 class="card-title">{{item.title}}</h5>
+                      <p class="card-text truncate-multiline">{{item.artist}}</p>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    
+        <div class="row pt-5 justify-content-center">
+            <div class="col-lg-9 col-xl-8 col-xxl-7">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 button">
+                        <button id="explore" (click)="trendingList()" style="width: 12.5rem;">{{explore}}</button>
+                    </div>
+                    <div class="col-md-1 p-3 or">
+                        OR
+                    </div>
+                    <div class="col-md-4 button">
+                        <button routerLink="/artist-place"  style="width: 12.5rem;">Upload your own</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<div class="music-player text-light pt-2 ">
+    <div class="row text-center">
+
+        <div class="col-md-4">
+            <div class="description text-light">
+                <div class="khra">
+                    <h6>{{musicName}}</h6>
+                    <p style="font-size:12px;opacity: 0.8;">{{artistName}}</p>
+                </div>
+                <div class="khra">
+                    <i class="fa-regular fa-heart" [ngClass]="{'hidden' :showHeartIcon}"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-6">
+            <div class="controls"  >
+                <button class="btn previous"><i class="ph-bold ph-skip-back"  (click)="updateSong('prev')"></i></button>
+                <button class="btn play-pause" style="opacity: 1;">
+                    <i id="play-pause-icon" class="ph-bold ph-play"></i>
+                </button>
+                <button class="btn next"><i class="ph-bold ph-skip-forward" (click)="updateSong('next')"></i></button>
+            </div>
+
+        </div>
+        <div class="col-md-4 col-6 pt-3">
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" class="form-range yellow-range" min="0" max="60" id="customRange2">
+        </div>
+    </div>
+</div>
+
+
