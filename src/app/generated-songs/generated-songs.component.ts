@@ -4,12 +4,12 @@ import { TrendingListComponent } from '../trending-list/trending-list.component'
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-category-list',
-  standalone:true,
-  imports:[HeaderBannerComponent,TrendingListComponent,RouterLink],
-  templateUrl: './category-list.component.html',
-  styleUrl: './category-list.component.css'
+  selector: 'app-generated-songs',
+  standalone: true,
+  imports: [HeaderBannerComponent,TrendingListComponent,RouterLink],
+  templateUrl: './generated-songs.component.html',
+  styleUrl: './generated-songs.component.css'
 })
-export class CategoryListComponent {
+export class GeneratedSongsComponent {
 
 }

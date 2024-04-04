@@ -1,0 +1,174 @@
+/*-------------------position adjastement --------------------*/
+.container-fluid {
+    background-image: url('../../assets/img/artist-place-background.jpg');
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 40px 0;
+    font-family: Circular 'sans-serif';
+}
+
+.row {
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; 
+    max-width: 750px;
+    margin: auto;
+    padding: 20px;
+}
+
+.col-12 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+hr{
+    width: 80%;
+    border-top: 1px solid rgb(126, 123, 123);
+    margin: 20px 0;
+}
+
+/*-----------------title------------------------------*/
+h1{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+/*-------------------- social media style-------------- */
+.social-links { 
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #727272;
+    border-radius: 50px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color:transparent;
+    position: relative;
+}
+.social-links:hover{
+    border: 1px solid white;
+}
+.social-links span{
+    color:rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+.social-links i {
+    position: absolute;
+    left: 10%;
+    top: 25%;
+    font-size: larger;
+}
+.google .social-links i svg{
+    height: 22px;
+    padding-bottom: 5px;
+}
+.facebook .social-links i{
+    background-color: white;
+    padding: 0.1px 0 0 0;
+    border-radius: 50%;
+    color: #0866ff;
+}
+.apple .social-links i{
+    color: white;
+}
+
+/*----------------------styling inputs---------------------------- */
+.input-group {
+    width: 100%;
+    max-width: 300px; 
+    margin: 5px auto;
+    text-align: left;
+}
+/*----------------------input label -----------------------------*/
+.input-group span {
+    margin-bottom: 5px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+/*----------------------------input------------------------------ */
+.input-group input[type="text"],.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #727272;
+    border-radius: 5px!important;
+    color: white;
+}
+.input-group input[type="text"]:hover,.input-group input[type="password"]:hover{
+    border: 1px solid white;
+}
+.input-group input::placeholder{
+    font-weight:600;
+    font-size: 0.90rem;
+}
+
+/*-----------------------------switch button ----------------------*/
+.remember {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px; 
+    margin: 5px auto;
+}
+.remember label {
+    margin: 5px 10px;
+    color: white;
+}
+.form-switch .form-check-input{
+    border: none;
+    box-shadow: none;
+}
+.form-switch .form-check-input:checked {
+    background-color: #FFD700;
+    border-color: #FFD700;
+}
+
+/* -----------------------------login button-------------------- */
+.validate .login{
+    width: 100%;
+    max-width: 300px; 
+    padding: 10px 0;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    background-color: #FFD700;
+}
+.validate .login:hover{
+    font-weight: 700;
+    scale: 1.05;
+    box-shadow: none;
+}
+
+.validate span, .signup{
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.validate span:hover, .signup:hover{
+    color: #FFD700;
+    cursor: pointer;
+}
+.noAccount{
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+
+
+/* media quey */
+@media (max-width: 768px) {
+    .row {
+        width: 100%; 
+        max-width: 750px;
+        padding: 0;
+    }
+    
+}

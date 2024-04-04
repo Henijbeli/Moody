@@ -101,11 +101,14 @@ button{
     color: yellow;
     opacity: 1;
   }
+  .btn:focus{
+    border: none;
+  }
 .controls .btn:nth-child(2):hover{
     scale: 1.1;
 }
 
-  #customRange2{
+  #musicBar{
     vertical-align: middle;
     padding: 0px 20px 0px 15px;
     width: 40%;

@@ -1,46 +1,62 @@
+<app-header-banner></app-header-banner>
+<div class="container-fluid" style="padding: 20px 20px;">
+    <div class="container-fluid text-center pt-4 text-light" style="background-color: #121212;padding-bottom: 50px;">
+        <h1 class="h1 title pb-2">CATEGORY</h1>
+        <div class="row justify-content-center">
 
-<div class="container-fluid text-center pt-4 text-light" style="background-color: #121212;">
-    <h1 class="h1 title pb-2">CATEGORY</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-6" >
-            <div  id="jbeli" class="row justify-content-center" style="padding: 0 40px;">
-                <div class="col-md-3 col-5 heni" style="background-color: #006450;">
-                    <h5 style="padding-top: 10px;" >SAD</h5>
-                    <img src="../../assets/img/image1.JPG" alt="">
-                </div>
-                <div class="col-md-3 col-5  heni" style="background-color: #1E3264 ;">
-                    <h5 style="padding-top: 10px;">HAPPY</h5>
-                    <img src="../../assets/img/image2.jpg" alt="">
-                </div>
-                <div class="col-md-3 col-5  heni" style="background-color: #8400E7 ;" >
-                    <h5 style="padding-top: 10px;">ANGRY</h5>
-                    <img src="../../assets/img/image3.JPG" alt="">
-                </div>
-                <div class="col-md-3 col-5 heni" style="background-color: #D84000;">
-                    <h5 style="padding-top: 10px;" >MOTIVATED</h5>
-                    <img src="../../assets/img/image4.JPG" alt="">
-                </div>
-                <div class="col-md-3 col-5 heni" style="background-color: #E1118C;">
-                    <h5 style="padding-top: 10px;">NOSTALGIC</h5>
-                    <img src="../../assets/img/image5.JPG" alt="">
-                </div>
-                <div class="col-md-3 col-5 heni" style="background-color: #0D73EC;" >
-                    <h5 style="padding-top: 10px;">CALM</h5>
-                    <img src="../../assets/img/image6.JPG" alt="">
-                </div>
-                <div class="col-md-3 col-5 heni" style="background-color:#2D46B9;">
-                    <h5 style="padding-top: 10px;" >ROMANTIC</h5>
-                    <img src="../../assets/img/image6.JPG" alt="">
-                </div>
-                <div class="col-md-3 col-5 heni" style="background-color: #503750;">
-                    <h5 style="padding-top: 10px;">RELAXED</h5>
-                    <img src="../../assets/img/image8.JPG" alt="">
-                </div>
-                <div class="col-md-3 col-5 heni" style="background-color: #E8115B;" >
-                    <h5 style="padding-top: 10px;">CONFIDENT</h5>
-                    <img src="../../assets/img/image9.JPG" alt="">
+            <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6 " >
+
+                <div class="row justify-content-center mood-list">
+                    
+                    <div routerLink="/activity-list" class="col-md-3 col-5 mood-option" style="background-color: #006450;">
+                        <h5 style="padding-top: 10px;" >POP</h5>
+                        <img src="../../assets/img/image1.JPG" alt="POP">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5  mood-option" style="background-color: #1E3264 ;">
+                        <h5 style="padding-top: 10px;">K-POP</h5>
+                        <img src="../../assets/img/image2.jpg" alt="K-POP">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5  mood-option" style="background-color: #8400E7 ;" >
+                        <h5 style="padding-top: 10px;">DRILL</h5>
+                        <img src="../../assets/img/image3.JPG" alt="DRILL">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5 mood-option" style="background-color: #D84000;">
+                        <h5 style="padding-top: 10px;" >CLASSIC</h5>
+                        <img src="../../assets/img/image4.JPG" alt="CLASSIC">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5 mood-option" style="background-color: #E1118C;">
+                        <h5 style="padding-top: 10px;">JAZZ</h5>
+                        <img src="../../assets/img/image5.JPG" alt="JAZZ">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5 mood-option" style="background-color: #0D73EC;" >
+                        <h5 style="padding-top: 10px;">ROCK</h5>
+                        <img src="../../assets/img/image6.JPG" alt="ROCK">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5 mood-option" style="background-color:#2D46B9;">
+                        <h5 style="padding-top: 10px;" >HIP-HOP</h5>
+                        <img src="../../assets/img/image6.JPG" alt="HIP-HOP">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5 mood-option" style="background-color: #503750;">
+                        <h5 style="padding-top: 10px;">METAL</h5>
+                        <img src="../../assets/img/image8.JPG" alt="METAL">
+                    </div>
+                    <div routerLink="/activity-list" class="col-md-3 col-5 mood-option" style="background-color: #E8115B;" >
+                        <h5 style="padding-top: 10px;">COUNTRY</h5>
+                        <img src="../../assets/img/image9.JPG" alt="COUNTRY">
+                    </div>
                 </div>
             </div>
+
+        </div>
+        <div class="row justify-content-center buttons ">
+            <div class="col-md-2 col-xxl-1 pt-1 col-8">
+                <span routerLink="/activity-list">Skip</span>
+            </div>
+            <div class="col-md-2 col-xxl-1 col-8 pt-1">
+                <span>Generate</span>
+            </div>
+
         </div>
     </div>
 </div>
+<app-trending-list></app-trending-list>

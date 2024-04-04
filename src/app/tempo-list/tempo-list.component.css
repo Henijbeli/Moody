@@ -44,16 +44,21 @@ img{
 .buttons{
     margin-top: 3%;
 }
-.generate span{
-    background-color: white;
+.skip span{
+    opacity: 0.8;
     padding: 12px 23px;
-    border-radius: 50px;
-    color: black;
     font-size: 1em;
     font-weight: 600;
 }
-.skip span{
-    opacity: 0.8;
+.generate span{
+    color: black;
+    background-color: white;
+    border-radius: 50px;
+    padding: 12px 23px;
+    font-size: 1em;
+    font-weight: 600;
+    box-shadow: 1px 1px 16px 1px rgba(253,203,110,1);
+
 }
 
 span:hover{

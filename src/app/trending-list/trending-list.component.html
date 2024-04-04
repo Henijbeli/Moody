@@ -6,20 +6,20 @@
 
     
         <div class="row">
-            <div id="song" *ngFor="let item of songList1;let i = index " class="col-md-3 col-xl-2 col-6 mt-4">
-                <div  class="card" (click)="playSong(i)">
+            <div id="song" *ngFor="let item of songList1;let i = index" class="col-md-3 col-xl-2 col-6 mt-4">
+                <div  class="card" (click)="playSong(i)" (mouseenter)="MouseHover(i)" (mouseleave)="MouseLeave(i)">
                     <img [src]="item.img" alt="song">
                     <div class="card-body ">
                       <h5 class="card-title">{{item.title}}</h5>
                       <p class="card-text truncate-multiline">{{item.artist}}</p>
                     </div>
-                    <span id="play"><i class="fa-solid fa-play"></i></span>
+                    <span><i id="play" class="fa-solid fa-play"></i></span>
                 </div>    
             </div>
         </div>
 
     
-        <div  id="songList2" class="row" [ngClass]="{'hidden' :showDiv}">
+        <div  class="row" [ngClass]="{'hidden' :showDiv}">
             <div *ngFor="let item of songList1" class="col-md-3 col-xl-2 col-6 mt-4">
                 <div  class="card">
                     <img [src]="item.img" alt="song">
@@ -69,17 +69,16 @@
             <div class="controls"  >
                 <button class="btn previous"><i class="ph-bold ph-skip-back"  (click)="updateSong('prev')"></i></button>
                 <button class="btn play-pause" style="opacity: 1;">
-                    <i id="play-pause-icon" class="ph-bold ph-play"></i>
+                    <i style="color: white;" id="play-pause-icon" class="ph-bold ph-play" (click)="barPlayPause()"></i>
                 </button>
                 <button class="btn next"><i class="ph-bold ph-skip-forward" (click)="updateSong('next')"></i></button>
             </div>
 
         </div>
         <div class="col-md-4 col-6 pt-3">
-            <i class="fa-solid fa-volume-high"></i>
-            <input type="range" class="form-range yellow-range" min="0" max="60" id="customRange2">
+            <i (click)="muteMusic()" id="soundIcon" class="fa-solid fa-volume-high"></i>
+            <input type="range" class="form-range" min="0" max="100" [(ngModel)]="volume" (input)="changeVolume()" id="musicBar">
         </div>
     </div>
 </div>
-
 

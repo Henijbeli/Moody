@@ -1,18 +1,21 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
+import { compileNgModule } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { log } from 'console';
 import { AnyTxtRecord } from 'dns';
+import { stat } from 'fs';
 
 @Component({
   selector: 'app-trending-list',
   standalone: true,
-  imports: [NgFor,NgClass,NgIf,RouterLink],
+  imports: [NgFor,NgClass,NgIf,RouterLink,FormsModule],
   templateUrl: './trending-list.component.html',
   styleUrl: './trending-list.component.css',
 
 })
 export class TrendingListComponent {
-  
 
   //songs list 
   songList1=[
@@ -89,26 +92,34 @@ export class TrendingListComponent {
       Path:'../../assets/music/Cartoon.mp3'
     },
   ]
+  
   explore="Explore more";
   showDiv=true;
-  trendingList(){
+  showHeartIcon=true;
+  musicName="";
+  artistName="";
+  song = new Audio();
+  currentSongIndex: number = -1;
+  AllSongs=document.getElementsByClassName("card");
+  volume: number = 50;
+
+trendingList(){
     this.showDiv=!this.showDiv;
     if(this.explore =="Explore more" ){
       this.explore="Explore less";
     }else if(this.explore="Explore less"){
       this.explore="Explore more"
     }
-  }
-  showHeartIcon=true;
-  musicName="";
-  artistName="";
-  song = new Audio();
-  currentSongIndex: number = -1;
-  playSong(index: number) {
+}
+
+playSong(index: number) {
+    var state="";
     if(this.song.src == "" ){
       this.currentSongIndex = index;
       this.song.src = (this.songList1[this.currentSongIndex].Path);
       this.song.play();
+      this.changeIcon()
+      state="pause";
     }
     else{
       this.currentSongIndex = index;
@@ -116,25 +127,36 @@ export class TrendingListComponent {
       if(this.song.src == newsong.src){
         if(this.song.paused){
           this.song.play();
+          this.changeIcon();
+          state="pause";
         }
         else {
           this.song.pause();
+          this.changeIcon();
+          state="play";
         }
       }else{
+        if(this.song.paused) this.changeIcon()
         this.song.pause();
         this.song.src=newsong.src;
         this.song.play();
+        state="pause";
       }
+    
   }
   this.musicName=this.songList1[this.currentSongIndex].title;
   this.artistName=this.songList1[this.currentSongIndex].artist;
   this.showHeartIcon=false;
-
+  console.log(state);
+  
+  var iconElement = Array.from(this.AllSongs)[index].children[2].children[0];
+  if (iconElement) {
+    iconElement.className = "fa-solid fa-"+state;
+  }
 }
 
-play=document.getElementById("#play");
-
 updateSong(action: any){
+  if(this.song.paused) this.changeIcon();
   this.song.pause();
   this.song.currentTime =0;
   if(action === 'next'){
@@ -145,11 +167,74 @@ updateSong(action: any){
     this.currentSongIndex--;
     if(this.currentSongIndex < 0) this.currentSongIndex = this.songList1.length - 1;
   }
+
   this.song.src = (this.songList1[this.currentSongIndex].Path);
   this.song.play();
+
+}
+
+changeIcon() {
+    var iconElement = document.getElementById('play-pause-icon');
+    if (iconElement) {
+      if(iconElement.className == "ph-bold ph-play")
+        iconElement.className = "ph-bold ph-pause";
+      else iconElement.className = "ph-bold ph-play";
+    }
+}
+
+barPlayPause(){
+ if(this.song.src !=""){
+  if(this.song.paused) this.song.play();
+  else this.song.pause();
+  this.changeIcon();
+ }else{
+  this.song = new Audio(this.songList1[0].Path);
+  this.song.play();
+  this.changeIcon();
+ }
+}
+
+MouseHover(index:number){
+if(!this.song.paused){
+  if(index==this.currentSongIndex) {
+    var iconElement = Array.from(this.AllSongs)[index].children[2].children[0];
+    if (iconElement) {
+      iconElement.className = "fa-solid fa-pause";
+    }
+  }
+}
+}
+
+MouseLeave(index:number){
+  var iconElement = Array.from(this.AllSongs)[index].children[2].children[0];
+  if (iconElement) {
+    iconElement.className = "fa-solid fa-play";
+  }
+}
+
+changeVolume() {
+  const volumeValue = this.volume / 100;
+  console.log(this.song.volume);
+  this.song.volume = volumeValue;
 }
 
 
 
+muteMusic() {
+  var muteIcon = document.getElementById('soundIcon');
+  if (muteIcon) {
+    if (muteIcon.className == "fa-solid fa-volume-high") {
+      muteIcon.className = "fa-solid fa-volume-xmark";
+      this.song.muted = true;
+    } else {
+      muteIcon.className = "fa-solid fa-volume-high";
+      this.song.muted = false;
+    }
+  }
+}
+
 
 }
+
+
+
