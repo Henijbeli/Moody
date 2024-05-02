@@ -1,0 +1,21 @@
+<div id="trending" class="container-fluid" style="padding: 20px;">
+    <div class="container-fluid text-center pt-3 text-light" style="background-color: #121212;padding-bottom: 50px;">
+        <!-- Component title-->
+        <h5 class="h2 title  p-4">Your Liked Songs</h5>
+
+        <!--  First song list of the componenet -->
+        <div class="row">
+            <div id="song" *ngFor="let item of songList1;let i = index" class="col-md-3 col-xl-2 col-6 mt-4">
+                    <div class="card" (click)="navigateWithAuthGuard(item)" (mouseenter)="MouseHover(item)"
+                        (mouseleave)="MouseLeave(i)">
+                        <img [src]="item.img" alt="song">
+                        <div class="card-body ">
+                            <h5 class="card-title">{{item.title}}</h5>
+                            <p class="card-text truncate-multiline">{{item.artist}}</p>
+                        </div>
+                        <span [id]="item.id"><i id="play" class="fa-solid fa-play"></i></span>
+                    </div>
+            </div>
+        </div>
+</div>
+

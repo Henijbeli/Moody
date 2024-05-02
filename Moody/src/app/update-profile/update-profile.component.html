@@ -1,0 +1,89 @@
+<form (ngSubmit)="update()" [formGroup]="profile">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- title-->
+            <div class="col-12 mt-5">
+                <h1>Update Your profile</h1>
+            </div>
+
+            <div class="col-12 mt-3 mb-3">
+                 <!-- IMAGE FILE-->
+                <div class="profile-photo mb-3">
+                    <img #profileImage class="rounded-circle mb-3" src="../../assets/img/default_profile_image.jpg" height="150px" width="150px" alt="">
+                    <label for="apply">
+                    <input #fileInput  (change)="onFileSelected($event)" type="file" name="imageFile" id="apply" accept="image/*"> <i class="fa-regular fa-image"></i> Upload Image </label>
+                </div>
+
+                <!--Username-->
+                <div class="input-group">
+                    <span>Username</span><br>
+                    <input #heni type="text" formControlName="username" name="username" placeholder="Your Username" required>
+                    <div *ngIf="profile.get('username')?.invalid && profile.get('username')?.touched">
+                        <small *ngIf="profile.get('username')?.errors?.['pattern']" >Username is incorrect</small>
+                        <small *ngIf="profile.get('username')?.errors?.['incorrect']">Username is already used</small>
+                    </div>
+                </div>
+
+                <!-- Name-->
+                <div class="input-group" style="margin-right: 2px;">
+                    <span>Name</span><br>
+                    <input  type="text" name="name" formControlName="name" placeholder="Your Name" required>
+                </div>
+
+                <!-- Last name-->
+                <div class="input-group" style="margin-left: 2px;">
+                    <span>Last name</span><br>
+                    <input type="text" name="lastname" formControlName="lastname" placeholder="Your Last Name" required>
+                </div>
+
+                <!-- Email-->
+                <div class="input-group">
+                    <span>Email</span><br>
+                    <input type="email" name="email" formControlName="email" placeholder="Your Email" required email>
+                    <div *ngIf="profile.get('email')?.invalid && profile.get('email')?.touched">
+                        <small *ngIf="profile.get('email')?.errors?.['pattern']" >Email is incorrect</small>
+                        <small *ngIf="profile.get('email')?.errors?.['incorrect']">Email is already used</small>
+                    </div>
+                </div>
+
+                <!-- Old Password-->
+                <div class="input-group mt-2">
+                    <span>Current password</span><br>
+                    <input  type="password" name="pwd" formControlName="pwd" placeholder="Old password" required >
+                    <div *ngIf="profile.get('pwd')?.invalid && profile.get('pwd')?.touched ">
+                        <small *ngIf="profile.get('pwd')?.errors?.['minlength']?.['requiredLength']">
+                            Please enter at least 6 caracters
+                        </small>
+                        <small *ngIf="profile.get('pwd')?.errors?.['pattern']" >
+                            *Please enter only letters and numbers
+                        </small>
+                    </div> 
+                </div>
+
+                <!-- new password-->
+                <div class="input-group mt-2">
+                    <span>New password</span><br>
+                    <input  type="password" name="npwd" formControlName="npwd" placeholder=" New password" required >
+                    <div *ngIf="profile.get('npwd')?.invalid && profile.get('npwd')?.touched ">
+                        <small *ngIf="profile.get('npwd')?.errors?.['minlength']?.['requiredLength']">
+                            Please enter at least 6 caracters
+                        </small>
+                        <small *ngIf="profile.get('npwd')?.errors?.['pattern']" >
+                            *Please enter only letters and numbers
+                        </small>
+                    </div> 
+                </div>
+
+            </div>
+            
+            <!-- Submit button-->
+            <div class="col-12 mt-2 mt-4">
+                <div class="validate">
+                    <button type="submit"  class="update" >Update</button><br><br>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 header-info">
+            <div class="profile-image">
+                <img class="rounded-circle" width="250px" height="250px" src="{{profileData.pdp}}" alt="profile-image">
+            </div>
+            <div class="user-info">
+                <span class="profile">Profile</span>
+                <h1 class="user-name">{{profileData.username}}</h1>
+                <span class="following-info"> {{profileData.nb_A}} Following</span>
+                &nbsp;
+                <span class="following-info"> {{profileData.nb_S}} Songs</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contianer-fluid text-light">
+    <div class="row artist-info" style="padding: 5% 11%">
+        <span class="col-12 followed-artist-title">Top artists this month</span><br>
+        <span class="private-visible-text">Only visible to you</span>
+        <div *ngFor="let item of followedArtists" class="col-md-3 col-xl-2  col-6 mt-4">
+            <div class="card" >
+                <img [src]="item.pdp" class="rounded-circle  card-img-top" height="180px" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.nickname}}</h5>
+                  <p class="card-text"><small class="text-muted">Artist</small></p>
+                </div>
+              </div>
+        </div>
+        <div class="col-12 pt-2">
+            <span class="showAll">Show all</span>
+        </div>
+    </div>
+</div>

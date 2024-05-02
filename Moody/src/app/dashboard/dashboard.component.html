@@ -1,0 +1,21 @@
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center ">
+        <h1 class="dashboard-title p-4">Dashboard <span class="control-panel">Conrol Panel</span></h1>
+        <div *ngFor="let item of adminlinks" class="col-5 col-md-3 col-xxl-2 card"
+            [ngStyle]="{'background-color': item.cardColor}">
+            <div class="card-body">
+                <div class="card-info">
+                    <h1 class="totalNumber">{{item.number}}</h1>
+                    <p class="card-title">{{item.about}}</p>
+                </div>
+                <div class="card-icon">
+                    <i [class]="item.icon"></i>
+                </div>
+            </div>
+            <button class="more-info" [ngStyle]="{'background-color': item.buttonColor}"
+                (click)="redirectTo(item.link)">
+                More info <i class="fa-solid fa-arrow-right" [ngStyle]="{'color': item.buttonColor}"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exemple de Recherche d'Artiste</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Recherche d'Artiste</h2>
+
+<input type="text" id="searchInput" placeholder="Rechercher par nom d'utilisateur ou surnom">
+<button id="searchButton">Rechercher</button>
+
+<table id="artistTable" border="1">
+  <thead>
+    <tr>
+      <th>Nom d'utilisateur</th>
+      <th>Surnom</th>
+      <th>Nombre d'abonnés</th>
+      <th>Nombre de chansons</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+$(document).ready(function(){
+  $('#searchButton').click(function(){
+    var searchValue = $('#searchInput').val();
+    $.ajax({
+      url: 'fetch_data.php',
+      method: 'POST',
+      dataType: 'json',
+      data: {
+        draw: '1',
+        columns: [
+          { data: '0', name: '', searchable: true, orderable: true, search: { value: '', regex: false } },
+          { data: '1', name: '', searchable: true, orderable: true, search: { value: '', regex: false } },
+          { data: '2', name: '', searchable: true, orderable: true, search: { value: '', regex: false } },
+          { data: '3', name: '', searchable: true, orderable: true, search: { value: '', regex: false } }
+        ],
+        order: [{ column: '0', dir: 'asc' }],
+        start: '0',
+        length: '10',
+        search: { value: searchValue, regex: false }
+      },
+      success: function(response){
+        console.log(response);
+        // Manipuler les données reçues pour afficher dans le tableau
+      },
+      error: function(xhr, status, error){
+        console.error(xhr.responseText);
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>

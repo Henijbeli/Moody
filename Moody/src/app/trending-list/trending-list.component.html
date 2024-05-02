@@ -1,0 +1,85 @@
+<div id="trending" class="container-fluid" style="padding: 20px;">
+    <div class="container-fluid text-center pt-3 text-light" style="background-color: #121212;padding-bottom: 50px;">
+        <!-- Component title-->
+        <h5 class="h2 title  p-4">Hear what’s Trending for free in Moody community</h5>
+
+        <!--  First song list of the componenet -->
+        <div class="row">
+            <div id="song" *ngFor="let item of songList1;let i = index" class="col-md-3 col-xl-2 col-6 mt-4">
+                <ng-container *ngIf="showDiv || i < 6">
+                    <div class="card" (click)="navigateWithAuthGuard(item)" (mouseenter)="MouseHover(item)"
+                        (mouseleave)="MouseLeave(i)">
+                        <img [src]="item.img" alt="song">
+                        <div class="card-body ">
+                            <h5 class="card-title">{{item.title}}</h5>
+                            <p class="card-text truncate-multiline">{{item.artist}}</p>
+                        </div>
+                        <span [id]="item.id"><i id="play" class="fa-solid fa-play"></i></span>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+
+        <!-- Show and hide second part of the songs-->
+        <div class="row pt-5 justify-content-center">
+            <div class="col-lg-9 col-xl-8 col-xxl-7">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 button">
+                        <button id="explore" (click)="showHideExploreMore()"
+                            style="width: 12.5rem;">{{explore}}</button>
+                    </div>
+                    <div class="col-md-1 p-3 or">
+                        OR
+                    </div>
+                    <div class="col-md-4 button">
+                        <button style="width: 12.5rem;" type="button" (click)="TestArtiste()" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                            Upload your own
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div *ngIf="shouldShowModal">
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="container">
+                        <form (ngSubmit)="NickName()" [formGroup]="ArtisteN">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel" style="color:#121212;">Become Artist
+                                    </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="nicknameC" class="form-label" style="color: #121212;">
+                                            Nickname :
+                                        </label>
+                                        <input type="text" class="form-control" id="nicknameC" name="nicknameC" formControlName="nicknameC"
+                                            placeholder="Nickname">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Join</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

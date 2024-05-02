@@ -1,0 +1,61 @@
+.mood-list{
+    padding: 0 40px;
+}
+.mood-option{
+    color: white;
+    height: 170px;
+    background: #D84000;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    margin: 15px;
+}
+.mood-option:hover{
+    cursor: pointer; 
+}
+@media (max-width: 992px) {
+    .mood-option{
+        margin: 5px;
+        height: 150px;
+    }
+    #mood-list{
+        padding: 0 !important;
+    }
+  }
+h3{
+    font-family: sans-serif;
+    padding: 0 10px;
+
+}
+img{
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    bottom: -10px;
+    right: -20px;
+    -moz-transform: rotate(29deg);
+    -webkit-transform: rotate(29deg);
+    -o-transform: rotate(29deg);
+    -ms-transform: rotate(29deg);
+    transform: rotate(29deg);
+}
+
+/* mood list buttons */
+.buttons{
+    margin-top: 3%;
+}
+.generate span{
+    background-color: white;
+    padding: 12px 23px;
+    border-radius: 50px;
+    color: black;
+    font-size: 1em;
+    font-weight: 600;
+}
+.skip span{
+    opacity: 0.8;
+}
+
+span:hover{
+    cursor: pointer;
+}

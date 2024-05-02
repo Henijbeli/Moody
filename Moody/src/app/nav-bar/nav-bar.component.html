@@ -1,0 +1,58 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark " style="padding: 15px 5px 15px 5px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="font-size: x-large;font-weight: 500;" href="#">
+        <span>MOODY</span>
+      </a>
+
+      <!-- button to collapse list item (toggler)-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#trending">Trending</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/likedsongs">Liked Songs</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+            <ng-container *ngIf="(loggedin | async); else isLoggedIn">
+                <div class="dropdown">
+                  <img src="{{profileData.pdp}}" height="50px" width="50px" class=" rounded-circle  dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="user-username">{{username}}</span>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li routerLink="/profile"><span class="dropdown-item"><i class="fa-solid fa-user"></i>Profile</span></li>
+                    <li [routerLink]="['updateprofile',username]"><span class="dropdown-item"><i class="fa-regular fa-pen-to-square"></i>Edit profile</span></li>
+                    <li routerLink="/adminArtist"><span class="dropdown-item"><i class="fa-solid fa-music"></i>Uploaded</span></li>
+                    <li  (click)="logout()"><span class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i>Disconnect</span></li>
+                  </ul>
+
+                  
+                </div>
+            </ng-container>
+            
+            <ng-template #isLoggedIn>
+                <li routerLink="/signup" class="nav-item">
+                  <a class="nav-link" id="signup">
+                    <span> Sign up</span> 
+                  </a>
+                </li>
+                <li routerLink="/login" class="nav-item">
+                  <a class="nav-link " id="signin">Log in</a>
+                </li>
+            </ng-template>
+       
+        </ul>
+      </div>
+    </div>
+  </nav>

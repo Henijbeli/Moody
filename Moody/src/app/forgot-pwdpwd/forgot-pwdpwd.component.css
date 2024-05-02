@@ -1,0 +1,101 @@
+.container-fluid {
+    background-image: url('../../assets/img/fgpwd\ \(1\).jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 20px 0;
+    height: 81vh;
+    font-family: Circular 'sans-serif';
+}
+.row {
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; 
+    max-width: 750px;
+    margin: auto;
+    padding: 20px;
+}
+
+.col-12 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.input-group {
+    width: 100%;
+    max-width: 300px; 
+    margin: 5px auto;
+    text-align: left;
+}
+/*----------------------input label -----------------------------*/
+.input-group span {
+    margin-bottom: 5px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+/*----------------------------input------------------------------ */
+.input-group input[type="text"],.input-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #727272;
+    border-radius: 5px!important;
+    color: white;
+}
+.input-group input[type="text"]:hover,.input-group input[type="password"]:hover{
+    border: 1px solid white;
+}
+.input-group input::placeholder{
+    font-weight:600;
+    font-size: 0.90rem;
+}
+
+
+
+/* -----------------------------login button-------------------- */
+.validate .login{
+    width: 100%;
+    max-width: 300px; 
+    padding: 10px 0;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    background-color: #FFD700;
+}
+.validate .login:hover{
+    font-weight: 700;
+    scale: 1.05;
+    box-shadow: none;
+}
+
+.validate span, .signup{
+    text-decoration: underline;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.validate span:hover, .signup:hover{
+    color: #FFD700;
+    cursor: pointer;
+}
+.noAccount{
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+small{
+    color: red;
+}
+
+/* media quey */
+@media (max-width: 768px) {
+    .row {
+        width: 100%; 
+        max-width: 750px;
+        padding: 0;
+    }
+    
+}

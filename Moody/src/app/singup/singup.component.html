@@ -1,0 +1,111 @@
+<form (ngSubmit)="signUp()" [formGroup]="signup">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- title-->
+            <div class="col-12 mt-5">
+                <h1>Sign up to Moody</h1>
+            </div>
+
+            <div class="col-12 mt-3 mb-3">
+
+                <!--Username-->
+                <div class="input-group">
+                    <span>Username</span><br>
+                    <input type="text" formControlName="username" name="username" placeholder="Your Username" required>
+                    <div *ngIf="signup.get('username')?.invalid && signup.get('username')?.touched">
+                        <small *ngIf="signup?.get('username')?.errors?.['required']">username is required</small>
+                        <small *ngIf="signup.get('username')?.errors?.['pattern']">Username is incorrect</small>
+                        <small *ngIf="signup.get('username')?.errors?.['incorrect']">Username is already used</small>
+                    </div>
+                </div>
+
+                <!-- Name-->
+                <div class="input-group" style="margin-right: 2px;">
+                    <span>Name</span><br>
+                    <input type="text" name="name" formControlName="name" placeholder="Your Name" required>
+                    <div *ngIf="signup.get('name')?.invalid && signup.get('name')?.touched">
+                        <small *ngIf="signup.get('name')?.errors?.['pattern']">Name is incorrect</small>
+                        <small *ngIf="signup?.get('name')?.errors?.['required']">name is required</small>
+                    </div>
+
+                </div>
+
+                <!-- Last name-->
+                <div class="input-group" style="margin-left: 2px;">
+                    <span>Last name</span><br>
+                    <input type="text" name="lastname" formControlName="lastname" placeholder="Your Last Name" required>
+
+                    <div *ngIf="signup.get('lastname')?.invalid && signup.get('lastname')?.touched">
+                        <small *ngIf="signup.get('lastname')?.errors?.['pattern']">lastname is incorrect</small>
+                        <small *ngIf="signup?.get('lastname')?.errors?.['required']">lastname is required</small>
+                    </div>
+                </div>
+
+                <!-- Email-->
+                <div class="input-group">
+                    <span>Email</span><br>
+                    <input type="email" name="email" formControlName="email" placeholder="Your Email" required email>
+                    <div *ngIf="signup.get('email')?.invalid && signup.get('email')?.touched">
+                        <small *ngIf="signup.get('email')?.errors?.['pattern']">Email is incorrect</small>
+                        <small *ngIf="signup.get('email')?.errors?.['incorrect']">Email is already used</small>
+                        <small *ngIf="signup?.get('email')?.errors?.['required']">Email is required</small>
+                    </div>
+                </div>
+
+                <!-- Password-->
+                <div class="input-group mt-2">
+                    <span>Password</span><br>
+                    <input type="password" name="pwd" formControlName="pwd" placeholder="Password" required>
+                    <div *ngIf="signup.get('pwd')?.invalid && signup.get('pwd')?.touched ">
+                        <small *ngIf="signup.get('pwd')?.errors?.['minlength']?.['requiredLength']">
+                            Please enter at least 6 caracters
+                        </small>
+                        <small *ngIf="signup.get('pwd')?.errors?.['pattern']">
+                            *Please enter only letters and numbers
+                        </small>
+                        <small *ngIf="signup?.get('pwd')?.errors?.['required']">Password is required</small>
+                    </div>
+                </div>
+
+                <!-- Radio buttons-->
+                <div class="mydict mt-3">
+                    <div>
+                        <label>
+                            <input class="gender" type="radio" formControlName="gender" value="H" name="gender"
+                                required>
+                            <span>Male</span>
+                        </label>
+                        <label>
+                            <input class="gender" type="radio" formControlName="gender" value="F" name="gender"
+                                required>
+                            <span>Female</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- switch button-->
+                <div class="form-check form-switch remember mt-2">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                    <label class="form-check-label" for="flexSwitchCheckChecked">Accept privacy</label>
+                </div>
+            </div>
+
+            <!-- Submit button-->
+            <div class="col-12 mt-2 mt-4">
+                <div class="validate">
+                    <button type="submit" class="login">Sign Up</button><br><br>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- If already have an account-->
+            <div class="col-12 mt-4 mb-4">
+                <span class="noAccount">Already have an account?</span>&nbsp; <span routerLink="/login"
+                    class="signup">Log in here.</span>
+            </div>
+
+        </div>
+    </div>
+</form>

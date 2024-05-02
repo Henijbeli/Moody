@@ -1,0 +1,29 @@
+<app-header-banner></app-header-banner>
+<div class="container-fluid" style="padding: 20px 20px;">
+    <div class="container-fluid text-center pt-4 text-light" style="background-color: #121212;padding-bottom: 50px;">
+
+        <h1 class="h1 title pb-2">MOOD</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 col-xxl-6 " >
+                <div class="row justify-content-center mood-list">
+                    <div *ngFor="let item of moodListTypes" (click)="setType(item.title)" routerLink="/category-list" class="col-md-3 col-5 mood-option" [ngStyle]="{'background-color': item.background_color}">
+                        <h5 style="padding-top: 10px;" >{{item.title}}</h5>
+                        <img [src]="item.path" alt="item.title">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center buttons ">
+            <div class="col-md-2 col-xxl-1 pt-1 col-8 skip">
+                <span>Skip</span>
+            </div>
+            <div class="col-md-2 col-xxl-1 col-8 pt-1  generate">
+                <span>Generate</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<app-trending-list></app-trending-list>

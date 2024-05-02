@@ -1,0 +1,48 @@
+
+<form (ngSubmit)="SendM()" [formGroup]="ContactF">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- title-->
+            <div class="col-12 mt-5">
+                <h1>CONTACT US</h1>
+            </div>
+
+            <!-- -->
+            <div class="col-12 mt-4">
+                <div class="input-group mt-2">
+                    <span>username</span><br>
+                    <input type="text" placeholder="Enter your username" formControlName="username" id="username" name="username">
+                    <small *ngIf="ContactF?.get('username')?.errors?.['required']">username is required</small>
+                </div>
+
+                <div class="input-group mt-2">
+                    <span>Email</span><br>
+                    <input type="text" placeholder="Enter your email" formControlName="email" id="email" name="email">
+                    <small *ngIf="ContactF?.get('email')?.errors?.['required']">Email is required</small>
+                </div>
+
+                <div class="input-group mt-2">
+                    <span>Subject</span><br>
+                    <input type="text" placeholder="Enter your Subject" formControlName="subject" id="subject" name="subject">
+                    <small *ngIf="ContactF?.get('subject')?.errors?.['required']">Subject is required</small>
+                </div>
+                <div class="input-group mt-2">
+                    <span>Message</span><br>
+                    <textarea name="message" id="" cols="30" rows="4" placeholder="Right Your message ...." formControlName="message"></textarea>
+                    <!--<small *ngIf="ContactF?.get('subject')?.errors?.['required']">Subject is required</small>-->
+                </div>
+
+                
+
+                <!-- send button-->
+                <div class="col-12 mt-4">
+                    <div class="validate">
+                        <button type="submit" class="send">Send</button><br><br>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,42 @@
+.dashboard-title{
+    color: white;
+    text-align: center;
+}
+.dashboard-title .control-panel{
+    font-size: large;
+    opacity: 0.8;
+}
+
+.card{
+    border: 1px solid black;
+    margin: 5px;
+    padding: 0;
+}
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.card-body .card-info .totalNumber{
+    font-weight: 700;
+}
+.card-body .card-icon i{
+    color:black;
+    opacity: 0.3;
+    font-size: 5rem;
+}
+.more-info{
+    background-color: #0984e3;
+    color: white;
+    padding: 10px 0;
+    border: none;
+}
+
+.more-info i{
+    padding: 3px;
+    border-radius: 50%;
+    background-color: white;
+    font-size: medium;
+    margin-left: 5px;
+}

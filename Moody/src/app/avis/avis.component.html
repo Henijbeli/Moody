@@ -1,0 +1,41 @@
+<div class="container-fluid" style="padding: 20px 20px;">
+    <div class="container-fluid pt-4 text-light" style="background-color: #121212; padding-bottom: 50px;">
+
+        <h1 class="h1 title pb-2 text-center">WHAT DO OUR USERS SAY</h1>
+
+        <div class="row justify-content-center avis-form ">
+                <div class="form-container">
+                    <h5 class="rating-title text-center"> Rate Moody</h5>
+                    <form class="form" (ngSubmit)="Add_Avis()" [formGroup]="avis">
+                        <div class="form-group">
+                            <label for="message">Description :</label>
+                            <textarea required="" cols="50" rows="10" id="message" name="message" formControlName="message"></textarea>
+                        </div>
+                        <div class="star-rating">
+                            <button *ngFor="let star of stars; index as i" type="button" (click)="rate(i)"
+                                [class.filled]="i < rating" [attr.aria-label]="'Rate ' + (i + 1) + ' out of 5'">★
+                            </button>
+                        </div>
+                        <button type="submit" class="form-submit-btn">Post</button>
+                    </form>
+                </div>
+        </div>
+
+        <div class="row justify-content-center ">
+            <figure *ngFor="let item of Avis" class="snip1533">
+                <figcaption>
+                    <blockquote>
+                        <p>{{ item.message }}</p>
+                    </blockquote>
+                    <h3>{{ item.username }}</h3>
+                    <div>
+                        <span *ngFor="let filled of displayStars(item.avis); let i = index">
+                            <span [class.filled]="filled">★</span>
+                        </span>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+
+    </div>
+</div>

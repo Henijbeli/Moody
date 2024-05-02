@@ -1,0 +1,98 @@
+.heartColorPink {
+    color: rgb(255, 0, 102);
+}
+
+.heartColorNone {
+    color: white;
+}
+
+.song-info {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: large;
+}
+.song-info img{
+    margin-bottom: 5px;
+}
+
+
+.music-player {
+    border-top: 4px solid #FFD700;
+    background-color: #060606;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.btn {
+    background-color: transparent;
+    color: white;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.btn:hover {
+    color: yellow;
+    opacity: 1;
+}
+
+.btn:focus {
+    border: none;
+}
+
+.controls .btn:nth-child(2):hover {
+    scale: 1.1;
+}
+
+#musicBar {
+    vertical-align: middle;
+    padding: 0px 20px 0px 15px;
+    width: 40%;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.slider {
+    border-radius: 5px;
+    background-image: #FFD700;
+    outline: none;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    background-color: #FFD700;
+    background-image: #FFD700;
+    cursor: pointer;
+  }
+  
+
+  .song-info:nth-child(3){
+    display: inline-block !important;
+  }
+
+
+  .song-info .followage{
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-size: large;
+    margin-left: 5px;
+  }
+
+  .fa-download{
+    color: #FFD700;
+    padding: 10px 0 15px 20px ;
+    transition: ease-in 0.2s;
+  }
+  .fa-download:hover{
+    cursor: pointer;
+    color: white;    
+  }
+  

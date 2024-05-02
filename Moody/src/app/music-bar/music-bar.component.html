@@ -1,0 +1,58 @@
+<!-- Music play bar-->
+<div class="music-player text-light pt-2 " *ngIf="audio">
+    <div class="row text-center">
+
+        <!-- song's information-->
+        <div class="col-md-4">
+            <div class="description text-light">
+                <div class="song-info m-2">
+                    <img [src]="currentSong.img" height="60px" width="60px" alt="">
+                </div>
+                
+                <div class="song-info">
+                    <h6>{{currentSong.title}}</h6>
+                    <p style="font-size:12px;opacity: 0.8;" [routerLink]="['/profile', ar]">{{currentSong.artist}}</p>
+                </div>
+                <div class="song-info">
+                   <ul type="none">
+                    <li>
+                        <i class="fa-solid fa-heart mt-3" (click)="likedSong()" [ngClass]="{'heartColorNone' :showHeartIcon,'heartColorPink':!showHeartIcon,'hidden':hideHeartIcon}"></i>
+                    </li>
+                    <li>
+                        <button class="followage" (click)="FollowC()">
+                            <ng-container *ngIf="isFollowing; else notFollowing">
+                                <i style="color:#00b894;" class="fa-solid fa-user-check"></i>
+                            </ng-container>
+                            <ng-template #notFollowing>
+                                <i style="color: #d63031;" class="fa-solid fa-user-xmark"></i>
+                               
+                            </ng-template>
+                        </button>
+                    </li>
+                   </ul>
+                </div>
+                <div class="song-info">
+                    <i class="fa-solid fa-download" (click)="downloadSong()"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls buttons-->
+        <div class="col-md-4 col-6 mt-2">
+            <div class="controls"  >
+                <button class="btn previous"><i class="ph-bold ph-skip-back"  (click)="updateSong('prev')"></i></button>
+                <button class="btn play-pause" style="opacity: 1;">
+                    <i style="color: white;" id="play-pause-icon" class="ph-bold ph-pause" (click)="barPlayPause()"></i>
+                </button>
+                <button class="btn next"><i class="ph-bold ph-skip-forward" (click)="updateSong('next')"></i></button>
+            </div>
+        </div>
+
+        <!-- Volume bar -->
+        <div class="col-md-4 col-6 pt-3">
+            <i (click)="muteMusic()" id="soundIcon" class="fa-solid fa-volume-high"></i>
+            <input type="range" class="form-range slider" min="0" max="1"  step="0.1" [(value)]="volume" (input)="changeVolume($event)" id="musicBar">
+        </div>
+
+    </div>
+</div>

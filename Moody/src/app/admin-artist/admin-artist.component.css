@@ -1,0 +1,20 @@
+.container{
+    background: #121212;
+}
+td,th{
+    vertical-align: middle;
+}
+.update,.delete{
+    padding: 10px 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: #FFD700;
+    color: black;
+    font-weight: 600;
+}
+@media  (max-width: 1024px) {
+    .update,.delete{
+        padding:1px 6px;
+        font-weight: 500;
+    }
+  }
