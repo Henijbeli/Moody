@@ -1,0 +1,11 @@
+Pour vous connecter en tant q'admin, veuillez utiliser les identifiants suivants :
+
+Nom d'utilisateur : admin
+Mot de passe : admin
+
+ou
+
+Nom d'utilisateur : topadmin
+Mot de passe : topadmin
+
+Cordialement,
